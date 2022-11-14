@@ -17,7 +17,6 @@ opt-level = "z"
 
 [dependencies]
 wasm-bindgen = "=0.2.83"
-wee_alloc = "0.4.3"
 schnorrkel = { version = "0.9.1", features = ["preaudit_deprecated", "u64_backend"] }
 console_error_panic_hook = "0.1.7"
 getrandom = { version = "0.2.3", features = ["js"] }
