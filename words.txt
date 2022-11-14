@@ -1,0 +1,10 @@
+alloc
+bindgen
+capi
+cdylib
+codegen
+getrandom
+Keypair
+preaudit
+pubkey
+schnorrkel

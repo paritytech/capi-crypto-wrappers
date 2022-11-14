@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": "words.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": ["project-words"],
+  "ignorePaths": [
+    "**/mod.generated.js",
+    "**/mod_bg.wasm",
+    "Cargo.lock",
+    "deno.lock",
+    "frame_metadata/raw_erc20_metadata.json",
+    "target",
+    "**/__snapshots__/*.snap",
+    "codegen/_output"
+  ]
+}
