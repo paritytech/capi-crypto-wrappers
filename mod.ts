@@ -1,1 +1,11 @@
-export * from "./sr25519.ts"
+import * as wasm from "./lib/capi_crypto_wrappers.generated.js"
+
+wasm.instantiate()
+wasm.init()
+
+export {
+  sr25519_from_seed,
+  sr25519_pubkey,
+  sr25519_sign,
+  sr25519_verify,
+} from "./lib/capi_crypto_wrappers.generated.js"
