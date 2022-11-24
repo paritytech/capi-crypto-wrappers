@@ -7,7 +7,7 @@ const fetchJs = await Deno.readTextFile("lib/fetch/capi_crypto_wrappers.generate
 
 const asyncJs = fetchJs.replace(
   /(.*function instantiateModule.*\n)[^]+?\n\}/m,
-  `$1  ${wasmBytesCode}\n  return WebAssembly.instantiate(wasmBytes);\n}`,
+  `$1  ${wasmBytesCode}\n  return WebAssembly.instantiate(wasmBytes, imports);\n}`,
 ) + `
 function base64decode(b64) {
   const binString = atob(b64);
