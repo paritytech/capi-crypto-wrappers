@@ -1,11 +1,8 @@
-import * as wasm from "./lib/capi_crypto_wrappers.generated.js"
+import { wasm } from "./lib.ts"
 
-await wasm.instantiate()
-wasm.init()
-
-export {
+export const {
   sr25519_from_seed,
   sr25519_pubkey,
   sr25519_sign,
   sr25519_verify,
-} from "./lib/capi_crypto_wrappers.generated.js"
+} = wasm
