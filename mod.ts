@@ -1,6 +1,6 @@
 import * as wasm from "./lib/capi_crypto_wrappers.generated.js"
 
-wasm.instantiate()
+await wasm.instantiate()
 wasm.init()
 
 export {
