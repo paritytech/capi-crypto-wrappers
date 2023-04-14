@@ -38,3 +38,20 @@ pub fn sr25519_from_seed(seed: &[u8]) -> Vec<u8> {
     .to_half_ed25519_bytes()
     .to_vec()
 }
+
+#[wasm_bindgen]
+pub fn ed25519_pubkey(secret: &[u8]) -> Vec<u8> {
+  use ed25519_zebra::{SigningKey, VerificationKey};
+  let secret = SigningKey::try_from(&secret[0..32]).expect("Invalid secret");
+  let vk_bytes: [u8; 32] = VerificationKey::from(&secret).into();
+  vk_bytes.to_vec()
+}
+
+#[wasm_bindgen]
+pub fn ecdsa_pubkey(secret: &[u8]) -> Vec<u8> {
+  use secp256k1::{PublicKey, Secp256k1, SecretKey};
+  let secret = SecretKey::from_slice(&secret[0..32]).expect("Invalid secret");
+  let context = Secp256k1::signing_only();
+  let public = PublicKey::from_secret_key(&context, &secret);
+  public.serialize().to_vec()
+}
