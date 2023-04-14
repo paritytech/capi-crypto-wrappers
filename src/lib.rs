@@ -49,9 +49,8 @@ pub fn ed25519_pubkey(secret: &[u8]) -> Vec<u8> {
 
 #[wasm_bindgen]
 pub fn ecdsa_pubkey(secret: &[u8]) -> Vec<u8> {
-  use secp256k1::{PublicKey, Secp256k1, SecretKey};
-  let secret = SecretKey::from_slice(&secret[0..32]).expect("Invalid secret");
-  let context = Secp256k1::signing_only();
-  let public = PublicKey::from_secret_key(&context, &secret);
-  public.serialize().to_vec()
+  use libsecp256k1::{PublicKey, SecretKey};
+  let secret = SecretKey::parse_slice(&secret[0..32]).expect("Invalid secret");
+  let public = PublicKey::from_secret_key(&secret);
+  public.serialize_compressed().to_vec()
 }
