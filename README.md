@@ -1,5 +1,6 @@
-# capi-crypto-wrappers
+# capi-crypto-wrappers (archived)
 
-A small WASM wrapper around a few Rust crypto libs used internally by [Capi](https://github.com/paritytech/capi).
+Previously, a small WASM wrapper around a few Rust crypto libs used internally
+by [Capi](https://github.com/paritytech/capi).
 
-**Unstable and not intended for use outside of Capi internals.**
+Now replaced by [`wat-the-crypto`](https://github.com/paritytech/wat-the-crypto).
